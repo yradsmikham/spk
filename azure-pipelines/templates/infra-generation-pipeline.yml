@@ -75,7 +75,7 @@ steps:
     set -e
 
     # Retrieve most recent commit hash from HLD repo
-    commit_hash=$(git rev-parse HEAD)
+    commit_hash=$(git rev-parse HEAD | cut -c1-7)
     echo "Commit Hash: $commit_hash"
 
     # Clone Generated Repo and copy generated components over
