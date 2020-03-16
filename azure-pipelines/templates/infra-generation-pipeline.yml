@@ -97,12 +97,8 @@ steps:
     pr_list=$(git ls-remote origin)
     if [[ $pr_list == *"pr-$commit_hash"* ]]; then
       echo "PR Branch already exist. Iterating..."
-      echo "***********************************ALL PRS*******************************************"
-      #git ls-remote origin
       count=$(git ls-remote origin | grep "pr-$commit_hash" | wc -l | tr -d " ")
-      #echo "count: $count"
       count=$((count + 1))
-      #echo "count: $count"
       PR_BRANCH_NAME=pr-$commit_hash-$count
       echo "PR BRANCH NAME: $PR_BRANCH_NAME"
       git checkout -b $PR_BRANCH_NAME
@@ -110,7 +106,6 @@ steps:
       echo "PR Branch does not exist. Creating a new PR Branch"
       PR_BRANCH_NAME=pr-$commit_hash-1
       echo "PR BRANCH NAME: $PR_BRANCH_NAME"
-      echo "************************************GIT CHECKOUT****************************************"
       git checkout -b $PR_BRANCH_NAME
     fi
 
