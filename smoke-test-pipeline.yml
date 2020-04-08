@@ -170,6 +170,7 @@ stages:
       - job: infra_integration_tests
         variables:
           - group: "spk-vg-testing"
+          - group: "spk-vg"
         pool:
           vmImage: "Ubuntu 16.04"
         steps:
